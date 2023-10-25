@@ -1,0 +1,176 @@
+main{
+    display:flex;
+    flex-direction: column;
+
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 15px;
+
+}
+
+header section:last-child button, input{
+padding: 5px;
+margin-top: 10px;
+}
+
+.control{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+
+}
+
+.control button{
+
+padding: 10px 40px;
+
+}
+
+.corps{
+    display: flex;
+
+}
+
+.contenu{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.music{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+
+}
+
+.music img{
+    width: 300px;
+    background-color: white;
+    padding: 15px;
+
+}
+
+.menu nav{
+    display: flex;
+    align-items: flex-start;
+
+}
+
+.menu ul{
+display: flex;
+flex-direction: column;
+padding-left: 0;
+
+}
+
+.menu{
+    width: 250px;
+    display: flex;
+    padding: 0;
+
+}
+
+.menu li{
+    list-style-type: none;
+padding:10px;
+border: 1px solid #0c9aec;
+
+}
+
+.menu a{
+    text-decoration: none;
+    color: #0c9aec;
+
+}
+
+/* @keyframes rotatef{
+0%{ transform: rotateY(0deg);
+z-index: 3;}
+
+100%{ transform: rotateY(180deg);
+z-index: -1;}
+}
+.music{
+    perspective: 50rem;
+    position: relative;
+    transition-duration: 2s;
+    transition: ease-in-out;
+
+}
+
+.music:hover .front{
+   animation-name: rotatef;
+   transition-duration: 5s;
+   transition: ease-in-out;
+   -webkit-transition: ease-in-out;
+   -webkit-animation-duration: 1s;
+   animation-fill-mode: forwards ;
+} */
+
+.front img{
+ padding: 15px;
+}
+
+.music .front{
+    position: absolute;
+    transition-duration: 5s;
+   transition: ease-in-out;
+   -webkit-transition: ease-in-out;
+   -webkit-animation-duration: 5s;
+
+}
+/* 
+@keyframes rotateb{
+    0%{ transform: rotateY(0deg);
+    z-index: -1;}
+    
+    100%{ transform: rotateY(180deg);
+    z-index: 3;}
+    }
+    
+ .back img{
+    padding-top: 15px;
+    padding-bottom:15px ;
+    height: 300px;
+    transform: rotateY(180deg);
+ }   
+ .back p{
+    background-color: black;
+    color: aliceblue;
+    max-width: 250px;
+ }
+.music .back{
+    position: relative;
+    
+z-index: -1;
+transition-duration: 5s;
+
+
+overflow: hidden;
+   transition: ease-in-out;
+   -webkit-transition: ease-in-out;
+   -webkit-animation-duration: 5s;
+
+
+}
+
+.music:hover .back{
+   
+    z-index: 3;
+    animation-name: rotateb;
+   transition-duration: 5s;
+   transition: ease-in-out;
+   -webkit-transition: ease-in-out;
+   -webkit-animation-duration: 1s;
+   animation-fill-mode: forwards ;
+
+}
+ */
