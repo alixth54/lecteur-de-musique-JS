@@ -51,16 +51,33 @@ function init() {/* charge l'audio dans la page web des le depart. */
     let creationDiv= " ";  //creation d'une variable pour y mettre la div html
     for (let i=0;i<long;i++){ //boucle pour recuperer indice tableau et faire integration div 
         creationDiv+=`         
-        <div class= music onclick="changemusic(${i})">
+        <div class= music id='contenuCards${i}' onclick="changemusic(${i})">
         <img src='${playlist[i].image}' alt='${playlist[i].titre}'>
         <h1>${playlist[i].titre}<h1>
             <h3>${playlist[i].artiste}</h3>
                 </div>`;
                 
     //+= veut dire ajouter dedans, changemusic(parametre fonction) qqui change en fonction de la card, appel objet tableau avec ${}.objet
+
 }
 
 document.getElementById('card').innerHTML=creationDiv; //implementation de ma div dans mon html
+
+
+let drop ="";
+drop +=`
+<button onclick="myFunction()" class="dropbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+<div id="myDropdown" class="dropdown-content">
+<input id="search" oninput="rechercher()" onkeydown='filter()' type="search" placeholder="chercher" name="chercher">`
+    for(let j=0;j<long;j++){
+        drop +=`
+<a href='#contenuCards${j}'>${playlist[j].titre} ${playlist[j].artiste}</a>
+`;
+    }
+    drop +=`
+    </div>`
+
+    document.getElementById('toolSearch').innerHTML=drop;
 }
 
  function changemusic(indexmusic){ // creation fonction click image avec ajout info dans html
@@ -178,11 +195,31 @@ function rechercher(){
  
     if(playlist[i].artiste.indexOf(rechercheUser)!=-1 || playlist[i].titre.indexOf(rechercheUser)!=-1){
         document.getElementById('lecteur').src=playlist[i].music;
-        document.getElementById('lecteur').play(); 
+         
         
 console.log(mot);
 
     }
 
     }
+}
+
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+function filter(){
+let input = document.getElementById("search");
+let filter = input.value.toUpperCase();
+let div = document.getElementById("myDropdown");
+let a = div.getElementsByTagName("a");
+  for (let i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+
 }

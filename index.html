@@ -13,7 +13,7 @@
 <body onload="init()">
 <main>
     <header>
-        <audio controls id="lecteur" ontimeupdate="changeTimeSpend()" ondurationchange="changeDuration()"></audio>  <!--ondurationchange permet de recuperer la duree maximale audio-->
+        <audio id="lecteur" ontimeupdate="changeTimeSpend()" ondurationchange="changeDuration()"></audio>  <!--ondurationchange permet de recuperer la duree maximale audio-->
         <section class="en-tete">
             <div class="control">
                 <button id="precedent" onclick="previous()"><i class="fa-solid fa-circle-arrow-left"></i></button>
@@ -36,9 +36,8 @@
             <input id="timeSpend"  onchange="changeRangetime()" type="range">
         
         </section>
-        <section>
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
-            <input id="search" oninput="rechercher()" type="search" placeholder="chercher" id="site-search" name="chercher">
+        <section id="toolSearch" class="dropdown">
+            
         </section>
     </header>
     <section class="corps">
