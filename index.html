@@ -13,31 +13,32 @@
 <body onload="init()">
 <main>
     <header>
-        <audio controls id="lecteur" ontimeupdate="changeTimeSpend()" ondurationchange="changeDuration()"></audio>  <!--ondurationchange permet de recuperer la duree maximale audio-->>
+        <audio controls id="lecteur" ontimeupdate="changeTimeSpend()" ondurationchange="changeDuration()"></audio>  <!--ondurationchange permet de recuperer la duree maximale audio-->
         <section class="en-tete">
             <div class="control">
                 <button id="precedent" onclick="previous()"><i class="fa-solid fa-circle-arrow-left"></i></button>
-                <button id="lecture" onclick="lecture()"><i class="fa-solid fa-play">play</i></button>
-                <button id="lire" hidden><i class="fa-solid fa-play">play</i></button>
-                <button id="pause" hidden><i class="fa-solid fa-play">pause</i></button>
+                <button id="lecture" onclick="lecture()"><i class="fa-solid fa-play"></i></button>
+                <button id="lire" hidden><i class="fa-solid fa-play"></i></button>
+                <button id="pause" hidden><i class="fa-solid fa-pause"></i></button>
 
                 <button id="suivant" onclick="next()"><i class="fa-solid fa-circle-arrow-right"></i></button>
             </div>
             <div class="control">
                 <button id="volume_moins" onclick="volume_moins()"><i class="fa-solid fa-volume-low"-></i></button>
-                <input id="volumeBarre" onchange="volumeChange()"  class="custom-slider" type="range" value="1" min="0" max="1" step="0.1">
+                <input id="volumeBarre" onchange="volumeChange()"  class="custom-slider" type="range" min="0" max="1" step="0.1">
                 <button id="volume_plus" onclick="volume_plus()"><i class="fa-solid fa-volume-high"+></i> </button>
             </div>
         </section>
-        <section>
-            <h1>A-HA</h1>
-            <p>Take on me</p>
-            <input id="timeSpend"  onchange="changeRangetime()" type="range" value="" min="0" max="">
+        <section id="head">
+            <img id="imageHead" src="">
+            <h1 id="artisteHead"></h1>
+            <h3 id="titreHead"></h3>
+            <input id="timeSpend"  onchange="changeRangetime()" type="range">
         
         </section>
         <section>
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
-            <input type="search" placeholder="chercher" id="site-search" name="chercher">
+            <input id="search" oninput="rechercher()" type="search" placeholder="chercher" id="site-search" name="chercher">
         </section>
     </header>
     <section class="corps">
@@ -63,7 +64,7 @@
     </section>
 </main>
 
-<!-- <script src="https://kit.fontawesome.com/a606278b24.js" crossorigin="anonymous"></script> -->
+<script src="https://kit.fontawesome.com/a606278b24.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
