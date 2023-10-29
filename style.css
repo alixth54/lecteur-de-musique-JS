@@ -94,147 +94,58 @@ border: 1px solid #0c9aec;
 
 }
 
-@keyframes rotatef{
-0%{ transform: rotateY(0deg);
-z-index: 3;}
-
-100%{ transform: rotateY(180deg);
-z-index: -1;}
-}
-.music{
-    perspective: 50rem;
-    position: relative;
-    transition-duration: 2s;
-    transition: ease-in-out;
-
-}
-
-.music:hover .front{
-   animation-name: rotatef;
-   transition-duration: 5s;
-   transition: ease-in-out;
-   -webkit-transition: ease-in-out;
-   -webkit-animation-duration: 1s;
-   animation-fill-mode: forwards ;
-}
-
 .front img{
  padding: 10px;
 }
 
-.music .front{
-    position: absolute;
-    transition-duration: 5s;
-   transition: ease-in-out;
-   -webkit-transition: ease-in-out;
-   -webkit-animation-duration: 5s;
-
-}
-
-@keyframes rotateb{
-    0%{ transform: rotateY(0deg);
-    z-index: -1;}
-    
-    100%{ transform: rotateY(180deg);
-    z-index: 3;}
-    }
-    
- .back img{
-    padding-top: 15px;
-    padding-bottom:15px ;
-    height: 200px;
-    transform: rotateY(180deg);
- }   
- .back p{
-    background-color: black;
-    color: aliceblue;
-    max-width: 250px;
- }
-.music .back{
-    position: relative;
-    
-z-index: -1;
-transition-duration: 5s;
-
-
-overflow: hidden;
-   transition: ease-in-out;
-   -webkit-transition: ease-in-out;
-   -webkit-animation-duration: 5s;
-
-
-}
-
-.music:hover .back{
-   
-    z-index: 3;
-    animation-name: rotateb;
-   transition-duration: 5s;
-   transition: ease-in-out;
-   -webkit-transition: ease-in-out;
-   -webkit-animation-duration: 1s;
-   animation-fill-mode: forwards ;
-
-}
-
-.dropdown {
-    position: relative;
+.row{
     display: flex;
-    flex-direction: row;
-
-  }
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    left:30px;
-    background-color: #f6f6f6;
-    min-width: 230px;
-    border: 1px solid #ddd;
-    z-index: 1;
-
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-
-  }
-
-  .show {
-    display:block;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 10px 20px;
+}
+#inputBox{
+padding-right: 35px;
+    flex:1;
+    height: 50px;
+    background: rgb(0, 0, 0,0.1);
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+    color: blue;
 }
 
-  #search {
-
-  font-size: 16px;
-  padding: 10px;
-  border: none;
-  border-bottom: 1px solid #ddd;
+.buttonSearch{
+    position:absolute;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
 
 }
-
-/* The search field when it gets focus/clicked on */
-#search:focus {
-    outline: 3px solid #ddd;
-}
-#toolSearch .dropbtn{
-    margin-top:10px;
-    margin-bottom: 200px;
-    margin-right: 150px;
+button .fa-solid{
+width: 25px;
+color: #3e5b60;
+cursor: pointer;
+font-size: 22px;
 }
 
+.resultBox{
+    border-top: 1px solid #999;
+    margin-left: 20px;
+padding-left: 5px;
+}
+.resultBox a:hover{
+    background-color: rgb(62, 91, 96,0.3) ;
+}
 @media screen and (width<1000px) {
     header{
         display: flex;
         flex-direction: column;
 
     }
+
 .control{
-    justify-content: flex-start
+    justify-content: flex-start;
 }
 }
 
