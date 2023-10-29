@@ -68,7 +68,7 @@ let drop ="";
 drop +=`
 <button onclick="myFunction()" class="dropbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
 <div id="myDropdown" class="dropdown-content">
-<input id="search" oninput="rechercher()" onkeydown='filter()' type="search" placeholder="chercher" name="chercher">`
+<input id="search" oninput="rechercher()" onkeypress='resetSearch(event)' type="search" placeholder="chercher" name="chercher">`
     for(let j=0;j<long;j++){
         drop +=`
 <a href='#contenuCards${j}'>${playlist[j].titre} ${playlist[j].artiste}</a>
@@ -80,6 +80,15 @@ drop +=`
     document.getElementById('toolSearch').innerHTML=drop;
 }
 
+function resetSearch(event){
+     
+        if (event.key === "Enter") {
+            document.getElementById('search').value = document.getElementById('search').defaultValue;
+
+        document.getElementById('lecteur').play(); 
+        };
+    } 
+
  function changemusic(indexmusic){ // creation fonction click image avec ajout info dans html
      
     index=indexmusic;
@@ -88,9 +97,6 @@ drop +=`
      document.getElementById('titreHead').innerHTML=playlist[indexmusic].titre;
      document.getElementById('lecteur').src=playlist[indexmusic].music;
 
-    console.log(index);
-    
-    
    
  }
 
@@ -187,39 +193,38 @@ function changeRangetime(){
     document.getElementById('lecteur').currentTime= document.getElementById('timeSpend').value;
 }
 
-function rechercher(){
+function rechercher(event){
     let rechercheUser=document.getElementById('search').value;
-
+    let div = document.getElementById("myDropdown");
+    let a = div.getElementsByTagName("a");
     for(let i=0; i<long;i++){
     let mot=rechercheUser.toUpperCase();
+    txtValue = a[i].textContent || a[i].innerText;
  
     if(playlist[i].artiste.indexOf(rechercheUser)!=-1 || playlist[i].titre.indexOf(rechercheUser)!=-1){
         document.getElementById('lecteur').src=playlist[i].music;
-         
-        
-console.log(mot);
+        document.getElementById('imageHead').src=playlist[i].image;
+    document.getElementById('artisteHead').innerHTML=playlist[i].artiste;
+    document.getElementById('titreHead').innerHTML=playlist[i].titre;
+     
+        a[i].style.display = "";
+      
+
+        index=i;
+    } else {
+        a[i].style.display = "none";
+      }
 
     }
 
-    }
+    
+    console.log(index);
 }
 
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
+    
+    document.getElementById('search').value = document.getElementById('search').defaultValue;
+    
   }
 
-function filter(){
-let input = document.getElementById("search");
-let filter = input.value.toUpperCase();
-let div = document.getElementById("myDropdown");
-let a = div.getElementsByTagName("a");
-  for (let i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a[i].style.display = "";
-    } else {
-      a[i].style.display = "none";
-    }
-  }
-
-}
